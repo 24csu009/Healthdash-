@@ -1,0 +1,27 @@
+// Function to calculate and suggest remaining water intake in glasses
+void water_glass_suggester() {
+    int weight, activity_minutes, glasses_consumed, total_glasses;
+    float water_intake_liters;
+
+    printf("\n--- Water Intake Suggester ---\n");
+
+    // Input user weight and activity duration
+    printf("Enter your weight (in kg): ");
+    scanf("%d", &weight);
+    printf("Enter your daily activity duration (in minutes): ");
+    scanf("%d", &activity_minutes);
+
+    // Water intake calculation
+    water_intake_liters = weight * 0.033; // Base intake: 0.033 liters per kg
+    water_intake_liters += (activity_minutes / 60.0); // Add extra for activity
+
+    // Convert recommended intake to glasses
+    total_glasses = (int)(water_intake_liters / 0.25 + 0.5); // Round to nearest glass
+
+    // Input number of glasses the user has already consumed
+    printf("Each glass is 250ml.\n");
+    printf("How many glasses of water have you drunk so far today? ");
+    scanf("%d", &glasses_consumed);
+
+    // Calculate remaining glasses
+    int remaining_glasses = total_glasses - glasses_consumed;
